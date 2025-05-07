@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Події з мишкою</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            font-size: 20pt;
+        }
+        #line2, #line3, #line4 {
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        // Для другого рядка (клацання)
+        let clicked = false;
+        function toggleLine2() {
+            let el = document.getElementById("line2");
+            if (!clicked) {
+                el.style.fontSize = "48pt";
+                el.style.color = "white";
+                el.style.backgroundColor = "lightblue";
+            } else {
+                el.style.fontSize = "20pt";
+                el.style.color = "black";
+                el.style.backgroundColor = "transparent";
+            }
+            clicked = !clicked;
+        }
+
+        // Для третього рядка (натиснення і відпускання)
+        function downLine3() {
+            document.getElementById("line3").style.backgroundColor = "green";
+        }
+
+        function upLine3() {
+            document.getElementById("line3").style.backgroundColor = "yellow";
+        }
+
+        // Для четвертого рядка (наведення і зняття курсора)
+        function overLine4() {
+            document.getElementById("line4").style.backgroundColor = "red";
+        }
+
+        function outLine4() {
+            document.getElementById("line4").style.backgroundColor = "lightblue";
+        }
+    </script>
+</head>
+<body>
+    <p><b>П'ять подій з мишкою</b></p>
+
+    <p id="line2" onclick="toggleLine2()">
+        Клацніть на мене мишкою
+    </p>
+
+    <p id="line3" onmousedown="downLine3()" onmouseup="upLine3()">
+        На цьому тексті натисніть, потримайте і відпустіть ліву кнопку мишки
+    </p>
+
+    <p id="line4" onmouseover="overLine4()" onmouseout="outLine4()">
+        Повільно проведіть курсором мишки по цій написи
+    </p>
+</body>
+</html>
